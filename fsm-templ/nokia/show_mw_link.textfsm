@@ -1,0 +1,10 @@
+Value link_name (\S+)
+Value protection (\S+)
+Value state_admin (Up|Down)
+Value state_oper (Up|Down)
+Value state_alarm (.+)
+Value radios_total (\d+)
+Value radios_ready (\d+)
+
+Start
+  ^\s*${link_name}\s+${protection}\s+${state_admin}\s+${state_oper}\s+${state_alarm}${radios_total}\/${radios_ready} -> Record

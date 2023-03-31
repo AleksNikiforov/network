@@ -1,0 +1,10 @@
+Value Filldown act_sdp (\S+)
+Value type (\S+)
+Value sdp_bind (\S+)
+Value prec_type (\d+)
+Value oper_stat (Up|Down)
+
+
+Start
+  ^\s*Tx Active \(SDP\)\s+: ${act_sdp}
+  ^\s*${type}:\s+${sdp_bind}\s+Prec:${prec_type}\s+Oper Status:\s+${oper_stat} -> Record

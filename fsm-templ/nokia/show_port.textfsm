@@ -1,0 +1,14 @@
+Value port_id (\S+)
+Value admin_state (\S+)
+Value link_state (\S+)
+Value port_state (\D+[\D ]+)
+Value cfg_mtu (\d+)
+Value oper_mtu (\d+)
+Value lag (\S+)
+Value port_mode (\S+)
+Value port_encp (\S+)
+Value port_type (\S+)
+Value media (\S+[\S ]+)
+
+Start
+  ^\s*${port_id}\s+${admin_state}\s+${link_state}\s+${port_state}\s+${cfg_mtu}\s+${oper_mtu}\s+${lag}\s+${port_mode}\s+${port_encp}\s+${port_type}\s+${media} -> Record 

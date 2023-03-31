@@ -1,0 +1,10 @@
+Value interface_name (\S+[\S ]+)
+Value vr_id (\d+)
+Value vr_role (\w+)
+Value vr_state (Up|Down)
+Value vr_addr (\d+(\.\d+){3})
+
+Start
+  ^${interface_name}\s+${vr_id}\s+\w+\s+\w+\s+${vr_role}
+  ^\s+\w+\s+${vr_state} .*
+  ^\s+Backup Addr: ${vr_addr} -> Record

@@ -1,0 +1,67 @@
+Value Filldown slot (\d)
+Value Filldown slot_status (\S+)
+Value port (\S+[\S ]+)
+Value port_status (\S+[\S ]+)
+Value mpt_type (\S+[\S ]+)
+Value link_status (\S+)
+Value value_expected (\S+)
+Value value_transmitted (.*)
+Value tmn_status (\S+)
+Value ospf_area (\S+)
+Value channel_spacing (\S+[\S ]+)
+Value modulation (\S+[\S ]+)
+Value capacity (\S+[\S ]+)
+Value option (\S+[\S ]+)
+Value shifter (\S+[\S ]+)
+Value tx_frequency (\S+[\S ]+)
+Value min_tx_freq (\S+[\S ]+)
+Value max_tx_freq (\S+[\S ]+)
+Value rx_frequency (\S+[\S ]+)
+Value atpc (\S+[\S ]+)
+Value tx_power (\S+[\S ]+)
+Value power_mode (\S+[\S ]+)
+Value ssm_status (\S+[\S ]+)
+Value booster_status (\S+[\S ]+)
+Value ehcrypt_status (\S+[\S ]+)
+Value passphrase (\S+[\S ]+)
+Value radio_label (\S+[\S ]+)
+Value mpt_in_lag (\S+[\S ]+)
+Value mpt_in_ring (\S+[\S ]+)
+Value xpic_polarization (\S+[\S ]+)
+
+Start
+  ^.*Slot ${slot} + ${slot_status}
+  ^.*Port: *${port} +- +${port_status}
+  ^.*MPT TYPE: *${mpt_type}
+  ^.*LINK IDENTIFIER: -> LINK
+  ^.*Channel Spacing: *${channel_spacing}
+  ^.*Modulation: *${modulation}
+  ^.*Capacity: *${capacity}
+  ^.*Option: *${option}
+  ^.*Shifter *: *${shifter}
+  ^.*TX Frequency *: *${tx_frequency}
+  ^.*Min TX Freq. *: *${min_tx_freq}
+  ^.*Max TX Freq. *: *${max_tx_freq}
+  ^.*RX Frequency *: *${rx_frequency}
+  ^.*ATPC: *${atpc}
+  ^.*TX Power *: *${tx_power}
+  ^.*Power Mode *: *${power_mode}
+  ^.*SSM STATUS: *${ssm_status}
+  ^.*PKT THROUGHPUT BOOSTER STATUS: *${booster_status}
+  ^.*ENCRYPTION STATUS: *${ehcrypt_status}.*PASSPHRASE: *${passphrase}
+  ^.*RADIO LABEL: *${radio_label}
+  ^.*MPT in LAG: *${mpt_in_lag}
+  ^.*MPT in RING: *${mpt_in_ring}
+  ^.*XPIC Polarization: *${xpic_polarization} -> Record
+  ^.*MPTSUBRACKS CONFIGURATION -> End
+
+LINK
+  ^.*Status: *${link_status}
+  ^.*Value expected: *${value_expected}
+  ^.*Value transmitted: *${value_transmitted}
+  ^.*TMN RF MANAGEMENT: -> TMN
+
+TMN
+  ^.*Status: *${tmn_status}
+  ^.*OSPF Routing: Area Number: *${ospf_area}
+  ^.*Preset Mode: -> Start

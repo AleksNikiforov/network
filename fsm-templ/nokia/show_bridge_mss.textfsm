@@ -1,0 +1,8 @@
+Value vlan (\d+)
+Value allowed_ports (\S+[\S ]+)
+Value untagged_ports (\S+[\S ]+)
+
+Start
+  ^ *Vlan +${vlan}: +ports-&gt; +${allowed_ports}
+  ^ *untagged-&gt; +${untagged_ports} -> Record
+  ^ *VLAN PORT CONFIGURATION -> End

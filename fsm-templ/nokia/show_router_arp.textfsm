@@ -1,0 +1,8 @@
+Value ip_address (\d+\.\d+\.\d+\.\d+)
+Value mac_address (\w+:\w+:\w+:\w+:\w+:\w+)
+Value expiry (\S+)
+Value entry_type (\S+)
+Value interface_name (\S+[\S ]+)
+
+Start
+  ^\s*${ip_address}\s+${mac_address}\s+${expiry}\s+${entry_type}\s+${interface_name} -> Record 

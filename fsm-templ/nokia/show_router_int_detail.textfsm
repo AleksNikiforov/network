@@ -1,0 +1,8 @@
+Value int_name (\S+)
+Value vpls_name (\S+[\S ]+)
+
+
+Start
+  ^\.*If Name\s+: ${int_name}
+  ^\.*VPLS Name\s+: ${vpls_name}
+  ^\.*QoS Queue-Group Redirection Details -> Record

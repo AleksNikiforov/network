@@ -1,0 +1,14 @@
+Value ip (\d+\.\d+\.\d+\.\d+)
+Value mask (\d+)
+Value Type (\S+)   
+Value Proto (\S+[\S ]+)
+Value Age (\S+)
+Value Pref (\d+)
+Value hop (\S+[\S ]+)
+Value metric (\d+)
+
+Start
+  ^${ip}/${mask}\s+${Type}\s+${Proto}\s+${Age}\s+${Pref}
+  ^\s+${hop}\s+${metric} -> Record
+
+

@@ -1,0 +1,45 @@
+Value IfIndex (\d+)
+Value name (\S+)
+Value description (\S+[\S ]+)
+Value oper_speed (\S+[\S ]+)
+Value config_speed (\S+[\S ]+)
+Value oper_duplex (\S+)
+Value config_duplex (\S+)
+Value admin_state (\S+)
+Value oper_state (\S+)
+Value physical_link (\S+)
+Value mtu (\d+)
+Value last_state_change (\S+[\S ]+)
+Value last_sleared_time (\S+[\S ]+)
+Value mac_conf (\S+)
+Value mac_hw (\S+)
+Value trans_status (\S+)
+Value trans_type (\S+)
+Value trans_model_number (\S+[\S ]+)
+Value trans_manuf_date (\S+)
+Value trans_serial_number (\S+)
+Value trans_part_number (\S+)
+Value trans_optical_comp (\S+)
+Value trans_link_len_sup (\S+[\S ]+)
+
+Start
+  ^\.*Description\s+: ${description}
+  ^\.*Interface\s+: ${name}\s+ Oper Speed       : ${oper_speed}
+  ^\.*Link-level\s+: Ethernet\s+ Config Speed     : ${config_speed}
+  ^\.*Admin State\s+: ${admin_state}\s+ Oper Duplex      : ${oper_duplex}
+  ^\.*Oper State\s+: ${oper_state}\s+ Config Duplex    : ${config_duplex}
+  ^\.*Physical Link\s+: ${physical_link}\s+MTU\s+: ${mtu}
+  ^\.*IfIndex\s+: ${IfIndex}    
+  ^\.*Last State Change\s+: ${last_state_change} Hold time down
+  ^\.*Last Cleared Time\s+: ${last_sleared_time} DDM Events
+  ^\.*Configured Address : ${mac_conf}
+  ^\.*Hardware Address\s+: ${mac_hw}
+  ^\.*Transceiver Type\s+: ${trans_type}
+  ^\.*Model Number\s+: ${trans_model_number}
+  ^\.*Transceiver Status : ${trans_status}
+  ^\.*Manufacture date\s+: ${trans_manuf_date}    
+  ^\.*Serial Number\s+: ${trans_serial_number}
+  ^\.*Part Number\s+: ${trans_part_number}
+  ^\.*Optical Compliance : ${trans_optical_comp}
+  ^\.*Link Length support: ${trans_link_len_sup}
+  ^Traffic Statistics$$ -> Record 

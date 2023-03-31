@@ -1,0 +1,36 @@
+Value name (\S+)
+Value admin_state (\S+)
+Value oper_state (\S+)
+Value protocols (\S+[\S ]+)
+Value ip_addr_mask (\S+)
+Value address_type (\S+)
+Value description (\S+[\S ]+)
+Value ifindex (\S+)
+Value virt_ifindex (\S+)
+Value global_ifindex (\S+)
+Value last_oper_chg (\S+[\S ]+)
+Value port_id (\S+)
+Value if_type (\S+)
+Value mac_sec (\S+)
+Value mtu (\S+)
+Value mtu_oper (\S+)
+
+
+
+Start
+  ^Interface$$ -> Int_sec
+
+Int_sec
+  ^\.*If Name\s+:\s*${name}
+  ^\.*Admin State\s+:\s*${admin_state}\s+Oper \(v4\/v6\)\s+:\s*${oper_state}
+  ^\.*Protocols\s+:\s*${protocols}
+  ^\.*IP Addr/mask\s+:\s*${ip_addr_mask}\s+Address Type\s+:\s*${address_type}
+  ^\.*Description\s+:\s*${description}
+  ^\.*If Index\s+:\s*${ifindex}\s+Virt. If Index\s+:\s*${virt_ifindex}
+  ^\.*Last Oper Chg\s+: ${last_oper_chg}\s+Global If Index\s+: ${global_ifindex}
+  ^\.*Port Id\s+:\s*${port_id}
+  ^\.*MAC Address\s+:\s*${mac_sec}
+  ^\.*IP MTU\s+:\s*${mtu}
+  ^\.*IP Oper MTU\s+:\s*${mtu_oper}
+  ^\.*TOS Marking\s+: \S+\s+If Type\s+:\s*${if_type}
+  ^(Admin Groups|Meter Statistics)$$ -> Record Start

@@ -1,0 +1,9 @@
+Value service_id (\d+)
+Value service_type (\S+)
+Value admin_status (\w+)
+Value oper_status (\w+)
+Value customer_id (\d+)
+Value service_name (\S+[\S ]+)
+
+Start
+  ^\s*${service_id}\s+${service_type}\s+${admin_status}\s+${oper_status}\s+${customer_id}\s+${service_name} -> Record 

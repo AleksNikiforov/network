@@ -1,0 +1,11 @@
+Value svcid (\d+)
+Value sdp (\d+)
+Value svc_tag (\d+)
+Value label_i (\d+)
+Value label_e (\d+)
+Value type (\S+)
+Value far_end ((\d+(\.\d+){3})|.{20})
+Value state_oper (\S+)
+
+Start
+  ^\s*${svcid}\s+${sdp}:${svc_tag}\s+${type}\s+${far_end}\s+${state_oper}\s+(${label_i}|(\S+))\s+(${label_e}|(\S+)) -> Record

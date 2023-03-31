@@ -1,0 +1,19 @@
+Value intf_num (\S+)
+Value intf_name (\S+)
+Value ip_addr (\S+)
+Value mask (\S+)
+Value dst_addr (\S+)
+Value intf_type (\S+)
+Value intf_speed (\S+[\S ]+)
+Value intf_status (\S+)
+
+Start
+  ^.*InterfaceNum\S.*? ${intf_num} 
+  ^.*\S+InterfaceName.*? ${intf_name} 
+  ^.*\S+IPAddress\S+ *${ip_addr} 
+  ^.*\S+IPMask.*? ${mask} 
+  ^.*\S+IPDstAddress.*? ${dst_addr} 
+  ^.*\S+InterfaceType.*? ${intf_type} 
+  ^.*\S+InterfaceSpeed.*? ${intf_speed} 
+  ^.*\S+InterfaceStatus.*? \S+ \(${intf_status}\) -> Record
+  

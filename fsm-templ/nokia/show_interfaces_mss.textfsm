@@ -1,0 +1,25 @@
+Value eth_port (\d)
+Value status (Disable|Enable)
+Value negotiation (\S+)
+Value bit_rate (\S+[\S ]+)
+Value flow_control (\S+)
+Value lag (\S+)
+Value sync_mode (\S+)
+Value acceptable_frame_type (\S+[\S ]+)
+Value eth_rate_limit (\S+[\S ]+)
+Value eth_storm_contr (\S+[\S ]+)
+Value description (.*)
+
+Start
+  ^.*Ep *${eth_port}
+  ^.*Status: *${status}
+  ^.*Auto Negotiation: *${negotiation}
+  ^.*BitRate: *${bit_rate}
+  ^.*Flow Control: *${flow_control}
+  ^.*Port in LAG: *${lag}
+  ^.*Synch Mode: *${sync_mode}
+  ^.*Acceptable Frame Type: *${acceptable_frame_type}
+  ^.*Ethernet Rate Limit: *${eth_rate_limit}
+  ^.*Ethernet Storm Controller: *${eth_storm_contr}
+  ^.*Ethernet Label: *${description} -> Record
+  ^.*LAGS CONFIGURATION -> End

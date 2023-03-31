@@ -1,0 +1,12 @@
+Value port (\S+)
+Value name (\S+|.{25})
+Value type (\S+|.{7})
+Value link (\d+)
+Value role (\S+)
+Value state_tx (\S+|.{5})
+Value state_oper (Up|Down)
+Value state_alarm (\w+|$)
+
+
+Start
+  ^\s*${port}\s+${name}\s+${type}\s+${link}\s+${role}\s+${state_tx}\s+${state_oper}\s*${state_alarm} -> Record

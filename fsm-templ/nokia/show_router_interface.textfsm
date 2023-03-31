@@ -1,0 +1,11 @@
+Value interface_name (\S+)
+Value admin_status (\w+)
+Value oper_status (\S+)
+Value mode (\S+)
+Value port (\S+)
+Value Required interface_ip (\d+\.\d+\.\d+\.\d+\/\d+)
+Value pfxstate (\S+)
+
+Start
+  ^\s*${interface_name}\s+${admin_status}\s+${oper_status}\s+${mode}\s+${port}
+  ^\s*${interface_ip}\s+${pfxstate} -> Record
