@@ -1,13 +1,6 @@
-wheel
-netmiko==3.4.0
 pymysql
 sshtunnel
 mysql-connector-python==8.0.12
-loguru
-ipython
-pyyaml
-pandas
-neo4j
 pysnmp
 requests
 bs4
@@ -17,7 +10,3 @@ requests_toolbelt
 selenium
 SQLAlchemy==1.4.36
 mysqlclient
-scrapli
-scrapli-community
-scrapli[asyncssh]
-hvac
